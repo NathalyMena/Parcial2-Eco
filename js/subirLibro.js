@@ -7,15 +7,15 @@ const db = firebase.database();
 
 btn.addEventListener("click",()=>{
 
-    let reference = db.ref("movies").push()
+    let reference = db.ref("book").push()
 
-    let pelicula = {
+    let libro = {
 
         nombre: input.value,
         id : reference.key
     }
 
-    reference.set(pelicula)
+    reference.set(libro)
 
 
     //window.location="index.html";
