@@ -1,4 +1,4 @@
-const input = document.querySelector(".movieName");
+const input = document.querySelector(".bookName");
 const btn = document.querySelector(".subir")
 const db = firebase.database();
 

@@ -1,6 +1,6 @@
 class BooksElements {
-    constructor(movie) {
-        this.movie = movie;
+    constructor(book) {
+        this.book = book;
     }
 
     render = () => {
@@ -9,15 +9,15 @@ class BooksElements {
         let total;
         let score
         let result;
-        let movieContainer = document.createElement("div");
+        let bookContainer = document.createElement("div");
 
 
 
-        movieContainer.innerHTML = `
+        bookContainer.innerHTML = `
 
 
                     <div class="infoContainer">
-                        <h2>${this.movie.nombre}</h2>
+                        <h2>${this.book.nombre}</h2>
 
                         <form class="inputContainer">
                             <label for="">1</label>
@@ -40,11 +40,11 @@ class BooksElements {
 
            `
 
-           movieContainer.classList.add("container");
-           const puntaje = movieContainer.querySelector(".score")
+           bookContainer.classList.add("container");
+           const puntaje = bookContainer.querySelector(".score")
            
-           const inputs = movieContainer.querySelector(".inputContainer");
-         db.ref("rating").orderByChild("id").equalTo(this.movie.id).on("value", function (data) {
+           const inputs = bookContainer.querySelector(".inputContainer");
+         db.ref("rating").orderByChild("id").equalTo(this.book.id).on("value", function (data) {
 
             total = data.numChildren();
             
@@ -68,13 +68,13 @@ class BooksElements {
             let rating = {
 
                 rating: parseFloat(inputs.radio.value),
-                id: this.movie.id
+                id: this.book.id
             }
             db.ref("rating").push(rating)
         })
 
 
-        return movieContainer;
+        return bookContainer;
  
 
     }
